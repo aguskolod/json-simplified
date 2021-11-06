@@ -26,7 +26,7 @@ db.get('DatabaseName', 'Field/Path');
 # Settings Multiple Values
 ```
 db.set('users', 'Finbar', {name: 'Finbar', gender: 'male', occupation: 'freelance programmer'});
-console.log(db.get('users', 'Finbar')); //{name: 'Finbar', gender: 'male', occupation: 'freelance programmer'};
+console.log(db.get('users', 'Finbar')); //{name: 'Finbar', gender: 'male', occupation: 'freelance programmer'}
 ```
 
 # Set And Get From JSON Path
@@ -34,5 +34,6 @@ console.log(db.get('users', 'Finbar')); //{name: 'Finbar', gender: 'male', occup
 db.set('users', 'Finbar.name', 'Finbar');
 db.set('users', 'Finbar.gender', 'Male');
 db.set('users', 'Finbar.occupation', 'freelance programmer');
-console.log(db.get('users', 'Finbar')); //{name: 'Finbar', gender: 'male', occupation: 'freelance programmer'};
+console.log(db.get('users', 'Finbar')); //{name: 'Finbar', gender: 'male', occupation: 'freelance programmer'}
+console.log(db.get('users', 'Finbar.name')); //Finbar
 ```
