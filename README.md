@@ -1,4 +1,5 @@
 # json-simplified
+<img src="https://img.shields.io/npm/v/json-simplified?style=for-the-badge">
 
 Simple JSON Database
 
