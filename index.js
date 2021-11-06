@@ -1,5 +1,4 @@
 const fs = require('fs');
-
 exports.set = function(name, path, data) {
     if(!name) throw new TypeError('No database name provided.');
     if(!path) throw new TypeError('No data path provided.');
@@ -7,6 +6,7 @@ exports.set = function(name, path, data) {
 
     if (!fs.existsSync('./db')) fs.mkdirSync('./db');
     if(!fs.existsSync(`./db/${name}.db.json`)) fs.writeFileSync(`./db/${name}.db.json`, '{}');
+    if(fs.readFileSync(`./db/${name}.db.json`).toString().length <= 0) fs.writeFileSync(`./db/${name}.db.json`, '{}');
 
     let json = JSON.parse(fs.readFileSync(`./db/${name}.db.json`).toString());
     const fields = path.split('.');
@@ -30,4 +30,5 @@ exports.get = function(name, path){
     const fields = path.split('.');
     let activeJson = json;
     for (let i = 0; i < fields.length; i++) activeJson = activeJson[fields[i]];
+    return activeJson;
 }
