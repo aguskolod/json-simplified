@@ -8,13 +8,11 @@ exports.set = function(name, path, data) {
     if (!fs.existsSync('./db')) fs.mkdirSync('./db');
     if(!fs.existsSync(`./db/${name}.db.json`)) fs.writeFileSync(`./db/${name}.db.json`, '{}');
 
-    let json = JSON.parse(fs.readFileSync(`./db/${name}.db.json`));
+    let json = JSON.parse(fs.readFileSync(`./db/${name}.db.json`).toString());
     const fields = path.split('.');
     let activeJson = json;
     for(let i = 0; i < fields.length - 1; i++){
-        if(!activeJson[fields[i]]){
-            activeJson[fields[i]] = {}
-        }
+        if(!activeJson[fields[i]]) activeJson[fields[i]] = {};
         activeJson = activeJson[fields[i]];
     }
     activeJson[fields.pop()] = data;
@@ -28,11 +26,8 @@ exports.get = function(name, path){
     if (!fs.existsSync('./db')) fs.mkdirSync('./db');
     if(!fs.existsSync(`./db/${name}.db.json`)) fs.writeFileSync(`./db/${name}.db.json`, '{}');
 
-    let json = JSON.parse(fs.readFileSync(`./db/${name}.db.json`));
+    let json = JSON.parse(fs.readFileSync(`./db/${name}.db.json`).toString());
     const fields = path.split('.');
     let activeJson = json;
-    for(let i = 0; i < fields.length; i++){
-        activeJson = activeJson[fields[i]];
-    }
-    console.log(activeJson);
+    for (let i = 0; i < fields.length; i++) activeJson = activeJson[fields[i]];
 }
