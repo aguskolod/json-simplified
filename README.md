@@ -29,7 +29,7 @@ db.set('users', 'Finbar', {name: 'Finbar', gender: 'male', occupation: 'freelanc
 console.log(db.get('users', 'Finbar')); //{name: 'Finbar', gender: 'male', occupation: 'freelance programmer'};
 ```
 
-# Settings And Getting Paths
+# Set And Get From JSON Path
 ```
 db.set('users', 'Finbar.name', 'Finbar');
 db.set('users', 'Finbar.gender', 'Male');
