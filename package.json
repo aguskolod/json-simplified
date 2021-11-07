@@ -1,6 +1,6 @@
 {
   "name": "json-simplified",
-  "version": "1.1.11",
+  "version": "1.2.0",
   "description": "Basic json database.",
   "main": "index.js",
   "scripts": {},
@@ -13,9 +13,11 @@
   ],
   "author": "finbar",
   "license": "ISC",
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/OneAndonlyFinbar/json-simplified"
+  },
+  "devDependencies": {
+    "json-simplified": "^1.2.0"
   }
 }
