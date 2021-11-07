@@ -12,28 +12,30 @@ Website: https://finbar.xyz<br>
 
 # Quick Start
 ```
-const db = require('json-simplified');
-db.set('versionsDatabase', 'version', '1.0');
-console.log(db.get('versionsDatabase', 'version')); //1.0
+const { Database } = require('json-simplified');
+const db = new Database('versionsDatabase');
+db.set('version', '1.0');
+db.get('version') // 1.0
 ```
 
 # Simple Usage
 ```
-db.set('DatabaseName', 'Field/Path', 'Data');
-db.get('DatabaseName', 'Field/Path');
+const db = new Database('Database Name')
+db.set('Field/Path', 'Data');
+db.get('Field/Path'); // Data
 ```
 
 # Settings Multiple Values
 ```
-db.set('users', 'Finbar', {name: 'Finbar', gender: 'male', occupation: 'freelance programmer'});
-console.log(db.get('users', 'Finbar')); //{name: 'Finbar', gender: 'male', occupation: 'freelance programmer'}
+db.set('Finbar', {name: 'Finbar', gender: 'male', occupation: 'freelance programmer'});
+db.get('users', 'Finbar'); // {name: 'Finbar', gender: 'male', occupation: 'freelance programmer'}
 ```
 
 # Set And Get From JSON Path
 ```
-db.set('users', 'Finbar.name', 'Finbar');
-db.set('users', 'Finbar.gender', 'Male');
-db.set('users', 'Finbar.occupation', 'freelance programmer');
-console.log(db.get('users', 'Finbar')); //{name: 'Finbar', gender: 'male', occupation: 'freelance programmer'}
-console.log(db.get('users', 'Finbar.name')); //Finbar
+db.set('Finbar.name', 'Finbar');
+db.set('Finbar.gender', 'Male');
+db.set('Finbar.occupation', 'freelance programmer');
+db.get('Finbar'); // {name: 'Finbar', gender: 'male', occupation: 'freelance programmer'}
+db.get('users', 'Finbar.name'); // Finbar
 ```
