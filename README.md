@@ -1,5 +1,5 @@
 # json-simplified
-<img src="https://img.shields.io/npm/v/json-simplified?style=for-the-badge">
+<a href="https://www.npmjs.com/package/json-simplified" target="_blank"><img src="https://img.shields.io/npm/v/json-simplified?style=for-the-badge"></a>
 
 Simple JSON Database
 
