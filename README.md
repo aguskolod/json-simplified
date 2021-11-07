@@ -6,7 +6,7 @@ Simple JSON Database
 Created By: OneAndonlyFinbar<br>
 Discord: Finbar#0001<br>
 Email: finbar@finbar.xyz<br>
-Website: https://finbar.xyz<br>
+Website: https://jsonsimplified.finbar.xyz/<br>
 
 <hr>
 
