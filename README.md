@@ -20,7 +20,7 @@ db.get('version') // 1.0
 
 # Simple Usage
 ```
-const db = new Database('Database Name')
+const db = new Database('DatabaseName')
 db.set('Field/Path', 'Data');
 db.get('Field/Path'); // Data
 ```
