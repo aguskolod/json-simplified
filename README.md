@@ -11,6 +11,11 @@ Website: https://finbar.xyz<br>
 <hr>
 
 # Quick Start
+
+```
+npm install json-simplified
+```
+
 ```
 const { Database } = require('json-simplified');
 const db = new Database('versionsDatabase');
