@@ -1,5 +1,5 @@
 const fs = require('fs');
-module.exports = function(database, path){
+module.exports = function(database, path, options){
     if(!database) throw new TypeError('No database name provided.');
     if(!path) throw new TypeError('No data path provided.');
 

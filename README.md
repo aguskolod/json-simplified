@@ -1,21 +1,16 @@
 # json-simplified
-<a href="https://www.npmjs.com/package/json-simplified" target="_blank"><img src="https://img.shields.io/npm/v/json-simplified?style=for-the-badge"></a>
+<img src="https://img.shields.io/npm/v/json-simplified?style=for-the-badge">
 
 Simple JSON Database
 
 Created By: OneAndonlyFinbar<br>
 Discord: Finbar#0001<br>
 Email: finbar@finbar.xyz<br>
-Website: https://jsonsimplified.finbar.xyz/<br>
+Website: https://jsonsimplified.finbar.xyz/ <br>
 
 <hr>
 
 # Quick Start
-
-```
-npm install json-simplified
-```
-
 ```
 const { Database } = require('json-simplified');
 const db = new Database('versionsDatabase');
@@ -30,7 +25,7 @@ db.set('Field/Path', 'Data');
 db.get('Field/Path'); // Data
 ```
 
-# Settings Multiple Values
+# Setting Multiple Values
 ```
 db.set('Finbar', {name: 'Finbar', gender: 'male', occupation: 'freelance programmer'});
 db.get('users', 'Finbar'); // {name: 'Finbar', gender: 'male', occupation: 'freelance programmer'}
