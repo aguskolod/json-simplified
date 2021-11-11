@@ -8,7 +8,7 @@
 class Database {
     constructor(name, options) {
         this.name = name;
-        this.options = options;
+        this.registry = options?.registry || 'db';
     }
     /**
      * @summary Sets a value for a database.
@@ -19,7 +19,7 @@ class Database {
      */
     async set(location, value, options){
         const set = require('./modules/set.js');
-        return set(this.name, location, value, options);
+        return set(this, location, value, options);
     }
     /**
      * @summary Gets a value from a database.
@@ -29,7 +29,7 @@ class Database {
      */
     async get(location){
         const get = require('./modules/get.js');
-        return get(this.name, location);
+        return await get(this, location);
     }
     /**
      * @summary Destroys database file.
@@ -37,11 +37,17 @@ class Database {
      */
     async destroy(){
         const destroy = require('./modules/destroy.js');
-        return destroy(this.name);
+        return destroy(this);
     }
+    /**
+     * @summary Delete a value from a database.
+     * @description Delete a value from a database using a field name or JSON path.
+     * @param {string} location - The location to delete from. Can be field name or JSON path.
+     * @return {string} Value fetched. If no value is present it will return undefined
+     */
     async delete(location){
         const deleteField = require('./modules/delete.js');
-        deleteField(this.name, location);
+        deleteField(this, location);
     }
 }
 

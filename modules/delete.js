@@ -1,13 +1,14 @@
 const fs = require('fs');
-module.exports = function(database, path) {
-    if(!database) throw new TypeError('No database name provided.');
+module.exports = function(databaseClass, path) {
+    if(!databaseClass.name) throw new TypeError('No database name provided.');
     if(!path) throw new TypeError('No data path provided.');
+    const registry = databaseClass?.['registry']?.toString() ? databaseClass?.['registry'].toString() : 'db';
 
-    if (!fs.existsSync('./db')) fs.mkdirSync('./db');
-    if(!fs.existsSync(`./db/${database}.db.json`)) fs.writeFileSync(`./db/${database}.db.json`, '{}');
-    if(fs.readFileSync(`./db/${database}.db.json`).toString().length <= 0) fs.writeFileSync(`./db/${database}.db.json`, '{}');
+    if (!fs.existsSync(`./${databaseClass.registry}`)) fs.mkdirSync(`./${databaseClass.registry}`);
+    if(!fs.existsSync(`./${databaseClass.registry}/${databaseClass.name}.db.json`)) fs.writeFileSync(`./${databaseClass.registry}/${databaseClass.name}.db.json`, '{}');
+    if(fs.readFileSync(`./${databaseClass.registry}/${databaseClass.name}.db.json`).toString().length <= 0) fs.writeFileSync(`./${databaseClass.registry}/${databaseClass.name}.db.json`, '{}');
 
-    let json = JSON.parse(fs.readFileSync(`./db/${database}.db.json`).toString());
+    let json = JSON.parse(fs.readFileSync(`./${databaseClass.registry}/${databaseClass.name}.db.json`).toString());
     const fields = path.split('.');
     let field = json;
     for(let i = 0; i < fields.length - 1; i++){
@@ -15,5 +16,5 @@ module.exports = function(database, path) {
         field = field[fields[i]];
     }
     delete field[fields.pop()];
-    fs.writeFileSync(`./db/${database}.db.json`, JSON.stringify(json));
+    fs.writeFileSync(`./${databaseClass.registry}/${databaseClass.name}.db.json`, JSON.stringify(json));
 }
