@@ -1,12 +1,13 @@
 const fs = require('fs');
-module.exports = function(database, path){
-    if(!database) throw new TypeError('No database name provided.');
+module.exports = async function(databaseClass, path, options){
+    if(!databaseClass?.name) throw new TypeError('No database name provided.');
     if(!path) throw new TypeError('No data path provided.');
+    const registry = databaseClass?.['registry']?.toString() ? databaseClass?.['registry'].toString() : 'db';
 
-    if (!fs.existsSync('./db')) fs.mkdirSync('./db');
-    if(!fs.existsSync(`./db/${database}.db.json`)) fs.writeFileSync(`./db/${database}.db.json`, '{}');
+    if (!fs.existsSync(`./${registry}`)) fs.mkdirSync(`./${registry}`);
+    if(!fs.existsSync(`./${registry}/${databaseClass.name}.db.json`)) fs.writeFileSync(`./${registry}/${databaseClass.name}.db.json`, '{}');
 
-    let json = JSON.parse(fs.readFileSync(`./db/${database}.db.json`).toString());
+    let json = JSON.parse(fs.readFileSync(`./${registry}/${databaseClass.name}.db.json`).toString());
     const fields = path.split('.');
     let field = json;
     for (let i = 0; i < fields.length; i++){

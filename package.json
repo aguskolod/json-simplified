@@ -1,6 +1,6 @@
 {
   "name": "json-simplified",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Basic json database.",
   "main": "index.js",
   "scripts": {},
