@@ -1,3 +1,4 @@
+const fs = require('fs');
 /**
  * @summary Creates a new database.
  * @description Creates a new database with given name and given options. If the database doesnt exist it will create a new one.
@@ -9,6 +10,7 @@ class Database {
     constructor(name, options) {
         this.name = name;
         this.registry = options?.registry || 'db';
+        if(options?.overwriteOld) fs.writeFileSync(`${this.registry}/${this.name}.db.json`, '{}');
     }
     /**
      * @summary Sets a value for a database.
