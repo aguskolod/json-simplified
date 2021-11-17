@@ -11,7 +11,7 @@ module.exports = function(databaseClass, path) {
     let json = JSON.parse(fs.readFileSync(`./${databaseClass.registry}/${databaseClass.name}.db.json`).toString());
     const fields = path.split('.');
     let field = json;
-    for(let i = 0; i < fields.length - 1; i++){
+    for(let i = 1; i < fields.length; i++){
         if(!field[fields[i]]) field[fields[i]] = {};
         field = field[fields[i]];
     }
