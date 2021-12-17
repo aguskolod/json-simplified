@@ -56,7 +56,7 @@ db.set('Finbar.occupation', 'freelance programmer');
 db.get('Finbar'); // {name: 'Finbar', gender: 'male', occupation: 'freelance programmer'}
 db.get('users', 'Finbar.name'); // Finbar
 ```
-# Database Options
+# Database Options 
 
 | Option | Type | Description |
 | ------ | ---- | ----------- |
