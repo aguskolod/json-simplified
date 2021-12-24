@@ -5,12 +5,15 @@ const fs = require('fs');
  * @return {Object} Database.
  * @param {string} name - Database name.
  * @param {Object} options - Database options.
+ * @param {String} options.registry - Database registry/folder;
+ * @param {String} options.overwriteOld - Overwrite old database if file exists.
  */
 class Database {
     constructor(name, options) {
         this.name = name;
         this.registry = options?.registry || 'db';
-        if(options?.overwriteOld) fs.writeFileSync(`${this.registry}/${this.name}.db.json`, '{}');
+
+        this.createDatabase(name, options);
     }
     /**
      * @summary Sets a value for a database.
@@ -50,6 +53,13 @@ class Database {
     async delete(location){
         const deleteField = require('./modules/delete.js');
         deleteField(this, location);
+    }
+    createDatabase(name, options){
+        const file = `${this.registry}/${name}.json`;
+        if(!fs.existsSync(file)){
+            fs.writeFileSync(file, '{}');
+        }
+        if(options?.overwriteOld) fs.writeFileSync(`${this.registry}/${this.name}.db.json`, '{}');
     }
 }
 

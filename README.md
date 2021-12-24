@@ -6,7 +6,7 @@ Simple JSON Database
 Created By: OneAndonlyFinbar<br>
 Discord: Finbar#0001<br>
 Email: finbar@finbar.xyz<br>
-Website: https://jsonsimplified.finbar.xyz/ <br>
+Documentation: https://jsonsimplified.finbar.xyz/ <br>
 
 <hr>
 
@@ -56,7 +56,7 @@ db.set('Finbar.occupation', 'freelance programmer');
 db.get('Finbar'); // {name: 'Finbar', gender: 'male', occupation: 'freelance programmer'}
 db.get('users', 'Finbar.name'); // Finbar
 ```
-# Database Options 
+# Database Options
 
 | Option | Type | Description |
 | ------ | ---- | ----------- |
