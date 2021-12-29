@@ -55,7 +55,7 @@ class Database {
         deleteField(this, location);
     }
     createDatabase(name, options){
-        const file = `${this.registry}/${name}.json`;
+        const file = `${this.registry}/${name}.db.json`;
         if(!fs.existsSync(file)){
             fs.writeFileSync(file, '{}');
         }
