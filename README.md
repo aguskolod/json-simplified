@@ -15,32 +15,31 @@ Documentation: https://jsonsimplified.finbar.xyz/ <br>
 const { Database } = require('json-simplified');
 const db = new Database('versionsDatabase');
 db.set('version', '1.0');
-// Returns promise
 db.get('version') // 1.0
 ```
 
 # Simple Usage
 ```
 const db = new Database('DatabaseName', {DatabaseOptions});
-await db.set('Field/Path', 'Data');
-await db.get('Field/Path'); // Data
+db.set('Field/Path', 'Data');
+db.get('Field/Path'); // Data
 
 // Using Field Names
-await db.set('latestVersion', '1');
-await db.get('latestVersion'); // 1
+db.set('latestVersion', '1');
+db.get('latestVersion'); // 1
 
 // Using JSON Paths
-await db.set('versions.latest', '1');
-await db.get('versions.latest'); // 1
+db.set('versions.latest', '1');
+db.get('versions.latest'); // 1
 
 // Delete data using field name
-await db.delete('latestVersion');
+db.delete('latestVersion');
 
 // Delete Data Using JSON Path
-await db.delete('versions.latest');
+db.delete('versions.latest');
 
 // Destroy database
-await db.destroy();
+db.destroy();
 ```
 
 # Setting Multiple Values
